@@ -11,7 +11,15 @@ http.createServer(function (req, res) {
 				res.write('404');
 				res.close();
 			} else {
-				res.writeHead(200, {'Content-Type': 'text/html'});
+				var ct = 'text/html';
+				if (/\.js(on)?$/.test(parsedReq.pathname)) {
+					ct = 'text/javascript';
+				} else if (/\.css$/.test(parsedReq.pathname)) {
+					ct = 'text/css';
+				} else {
+					// test for images
+				}
+				res.writeHead(200, {'Content-Type': ct});
 				res.write(data);
 				res.close();
 			}
