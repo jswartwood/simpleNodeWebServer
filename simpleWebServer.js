@@ -1,6 +1,12 @@
+/*!
+ * Simple Web Server
+ * 
+ * Copyright (c) 2011 Jacob Swartwood
+ */
+
 var sys = require('sys'), 
-http = require('http')
-fs = require('fs');
+	http = require('http'),
+	fs = require('fs');
 
 var PATH_TO_WWW = "www";
 
